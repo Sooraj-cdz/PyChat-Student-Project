@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PyChat | Chat room</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="chat-page">
+  <main class="chat-shell">
+    <header class="topbar">
+      <div class="brand"><div class="logo small">P</div><div><strong>PyChat</strong><small>Community room</small></div></div>
+      <div class="user-area"><span class="online-dot"></span><span id="current-user">{{ username }}</span>
+        <form action="/logout" method="post"><button class="logout" type="submit">Leave</button></form>
+      </div>
+    </header>
+    <section class="chat-heading"><div><p class="eyebrow">PUBLIC CHAT ROOM</p><h1>Messages</h1></div><span class="room-pill">● General</span></section>
+    <section id="messages" class="messages" aria-live="polite">
+      <div class="empty-state" id="empty-state"><div class="empty-icon">✦</div><h2>Start the conversation</h2><p>Your messages will appear here.</p></div>
+    </section>
+    <form id="message-form" class="composer">
+      <input id="message-input" maxlength="1000" autocomplete="off" placeholder="Write a message..." aria-label="Write a message" required>
+      <button type="submit" aria-label="Send message">Send <span>➤</span></button>
+    </form>
+    <p class="hint">Be respectful. Messages are shared with everyone in this room.</p>
+  </main>
+  <script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+</html>
